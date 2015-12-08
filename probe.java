@@ -25,7 +25,7 @@ SOFTWARE.
 import lib.Jcac;
 import java.io.*;
 
-public class probe  {
+public class Probe  {
 	public static void main(String[] args) throws Exception {
 
 		Jcac test = new Jcac();
