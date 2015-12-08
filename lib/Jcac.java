@@ -30,9 +30,9 @@ import java.util.*;
 
 public class Jcac  
 {
-	private String APIKEY 		    = "";
+	private String APIKEY 		= "";
 	private String LOGIN_EMAIL      = "";
-	private String version		    = "v1";
+	private String version		= "v1";
 	static public final String PATH = "https://panel.cloudatcost.com/api/";
 
 	/**
