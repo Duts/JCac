@@ -30,4 +30,4 @@ https://github.com/cloudatcost/api
 
 #TL;DR
 Read the Documentation before use these API.<BR>
-(I'm not a master of java so if I wrote something wrong, open a Issues)
+(I'm not a guru of java so if I wrote something wrong, open a Issues)
