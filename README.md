@@ -1,4 +1,4 @@
-# JCac
+# JCac aka Java - Cloud At Cost
 CloudatCost API - Java
 
 # Usage:
