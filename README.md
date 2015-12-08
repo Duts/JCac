@@ -11,7 +11,7 @@ Execute: <code>> java Probe</code>
 </li>
 </ul>
 #OR
-Add the "lib/Jcac.java" file to your project
+Add the <code>"lib/Jcac.java"</code> file to your project
 
 # EXAMPLE
 
