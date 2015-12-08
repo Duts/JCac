@@ -30,9 +30,9 @@ import java.util.*;
 
 public class Jcac  
 {
-	private String APIKEY 		    = "";
+	private String APIKEY           = "";
 	private String LOGIN_EMAIL      = "";
-	private String version		    = "v1";
+	private String version          = "v1";
 	static public final String PATH = "https://panel.cloudatcost.com/api/";
 
 	/**
@@ -91,10 +91,35 @@ public class Jcac
 	        conn.setRequestProperty("Content-Length", String.valueOf(DpostBytes.length));
 	        conn.setDoOutput(true);
 	        conn.getOutputStream().write(DpostBytes);
-	        Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-	        for ( int c = in.read(); c != -1; c = in.read() ){
-	      		response += (char)c;
-	       	}
+
+	        int statusCode = conn.getResponseCode();
+	        switch (statusCode) {
+	        	case 200:
+	        		Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+	        		for ( int c = in.read(); c != -1; c = in.read() ){
+	      				response += (char)c;
+	       			}
+	       			break;
+	       		case 400:
+	       			response = "[Error: 400] Invalid api URL";
+	       			break;
+	       		case 403:
+	       			response = "[Error: 403] Invalid or missing api key";
+	       			break;
+	       		case 412:
+	       			response = "[Error: 412] Request failed";
+	       			break;
+	       		case 500:
+	       			response = "[Error: 500] Internal server error";
+	       			break;
+	       		case 503:
+	       			response = "[Error: 503] Rate limit hit";
+	       			break;
+	       		default:
+	       			response = "[Unknown Error] " + statusCode;
+	       			break;
+	        }
+
 	       	return response;
        }
        catch (Exception e) {
@@ -138,10 +163,33 @@ public class Jcac
 	        conn.setRequestProperty("Content-Length", String.valueOf(DpostBytes.length));
 	        conn.setDoOutput(true);
 	        conn.getOutputStream().write(DpostBytes);
-	        Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-	        for ( int c = in.read(); c != -1; c = in.read() ){
-	      		response += (char)c;
-	       	}
+	        int statusCode = conn.getResponseCode();
+	        switch (statusCode) {
+	        	case 200:
+	        		Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+	        		for ( int c = in.read(); c != -1; c = in.read() ){
+	      				response += (char)c;
+	       			}
+	       			break;
+	       		case 400:
+	       			response = "[Error: 400] Invalid api URL";
+	       			break;
+	       		case 403:
+	       			response = "[Error: 403] Invalid or missing api key";
+	       			break;
+	       		case 412:
+	       			response = "[Error: 412] Request failed";
+	       			break;
+	       		case 500:
+	       			response = "[Error: 500] Internal server error";
+	       			break;
+	       		case 503:
+	       			response = "[Error: 503] Rate limit hit";
+	       			break;
+	       		default:
+	       			response = "[Unknown Error] " + statusCode;
+	       			break;
+	        }
 	       	return response;
        }
        catch (Exception e) {
